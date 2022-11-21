@@ -27,8 +27,8 @@ require "personnage.class.php";
     <div class="personnages tb1">
 
         <h2>Créer un nouveau personnage</h2>
-        <input type="text">
-        <button>Enregistrer le personnage</button>
+        <input class="new-perso" type="text" placeholder="Nom du personnage">
+        <button class="new-perso">Enregistrer le personnage</button>
 
     </div>
 
@@ -50,9 +50,11 @@ require "personnage.class.php";
                 echo "<tr>";
                         echo "<th>ID</th>";
                         echo "<th>Nom</th>";
-                        echo "<th>Vie</th>";
+                        echo "<th>Point de Vie</th>";
                         echo "<th>Force d'attaque</th>";
                         echo "<th>Point d'attaque</th>";
+                        echo "<th>Choix</th>";
+                        echo "<th>Options</th>";
                 echo "</tr>";
 
             echo "</thead>";
@@ -68,6 +70,8 @@ require "personnage.class.php";
                     echo "<td>{$personnage['vie']}</td>";
                     echo "<td>{$personnage['force_attaque']}</td>";
                     echo "<td>{$personnage['point_attaque']}</td>";
+                    echo "<td><button>Ajouter à la partie</button></td>";
+                    echo "<td><button class='red'>Supprimer le personnage</button></td>";
 
                 }
 
@@ -78,10 +82,6 @@ require "personnage.class.php";
         echo "</table>";
 
         ?>
-
-        <button class="options">Modifier</button>
-        <button class="options">Supprimer</button>
-
 
     </div>
 
@@ -103,9 +103,10 @@ require "personnage.class.php";
         echo "<tr>";
         echo "<th>ID</th>";
         echo "<th>Nom</th>";
-        echo "<th>Vie</th>";
+        echo "<th>Point de Vie</th>";
         echo "<th>Force d'attaque</th>";
         echo "<th>Point d'attaque</th>";
+        echo "<th>Choix</th>";
         echo "</tr>";
 
         echo "</thead>";
@@ -121,6 +122,7 @@ require "personnage.class.php";
             echo "<td>{$personnage['vie']}</td>";
             echo "<td>{$personnage['force_attaque']}</td>";
             echo "<td>{$personnage['point_attaque']}</td>";
+            echo "<td><button class='remove'>Retirer de la partie</button></td>";
 
         }
 

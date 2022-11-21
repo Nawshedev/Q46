@@ -13,11 +13,12 @@ body {
     height: 100vh;
     text-align: center;
     background-color: gray;
+    padding: 10px;
 }
 
 .tableau {
 
-    width: 600px;
+    width: 750px;
     display: flex;
     flex-direction: column;
     margin: 50px auto;
@@ -30,10 +31,15 @@ h2 {
 }
 
 .personnages {
+    width: 100%;
     border: 1px solid black;
-    padding: 15px;
+    /*padding: 15px;*/
     border-radius: 5px;
     box-shadow: 2px 2px 5px 2px #363636;
+
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
 
 }
 
@@ -41,7 +47,8 @@ input {
 }
 
 button, input {
-    padding: 5px 20px;
+    width: 100%;
+    padding: 5px 0;
     border-radius: 10px;
     border: 1px solid black;
     transition: 0.2s;
@@ -54,13 +61,6 @@ button:hover {
     color: white;
 }
 
-.personnages {
-    width: 600px;
-    border: 1px solid black;
-    margin: auto;
-    padding: 5px;
-    border-radius: 5px;
-}
 
 table {
     width: 100%;
@@ -88,5 +88,20 @@ tr:nth-child(3) td:nth-child(2)
 
 .options {
     margin: 5px 5px;
+}
+
+.red {
+    color: white;
+    background-color: red;
+}
+
+.remove {
+    color: white;
+    background-color: orange;
+}
+
+.new-perso {
+    width: 30%;
+    text-align: center;
 }
 
