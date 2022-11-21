@@ -1,7 +1,7 @@
 
 <?php
 
-require "Database.class.php";
+require "dataBase.class.php";
 require "personnage.class.php";
 
 
