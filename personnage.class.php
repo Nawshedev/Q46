@@ -22,8 +22,4 @@ class Personnage {
         return $valeurjetdeDe * $this->force_Attaque;
     }
 
-
-
-
-
 }

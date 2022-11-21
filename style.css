@@ -12,6 +12,7 @@ body {
     width: 100%;
     height: 100vh;
     text-align: center;
+    background-color: gray;
 }
 
 .tableau {
@@ -19,22 +20,27 @@ body {
     width: 600px;
     display: flex;
     flex-direction: column;
-    margin: 60px auto;
-    gap: 5px;
+    margin: 50px auto;
+    gap: 10px;
+
 }
 
 h2 {
-    padding: 5px;
+    padding: 10px 5px;
 }
 
-.personnage {
+.personnages {
     border: 1px solid black;
-    padding: 5px;
+    padding: 15px;
     border-radius: 5px;
+    box-shadow: 2px 2px 5px 2px #363636;
 
 }
 
-button {
+input {
+}
+
+button, input {
     padding: 5px 20px;
     border-radius: 10px;
     border: 1px solid black;
@@ -59,4 +65,28 @@ button:hover {
 table {
     width: 100%;
     border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
 }
+
+thead {
+    background-color: lightgray;
+}
+
+tr:nth-child(3) td:nth-child(2)
+{background-color: yellow;}
+
+.tb1 {
+    background-color: lightgreen;
+}
+.tb2 {
+    background-color: lightpink;
+}
+.tb3 {
+    background-color: lightcoral;
+}
+
+.options {
+    margin: 5px 5px;
+}
+
