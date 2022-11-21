@@ -19,6 +19,7 @@ require "personnage.class.php";
 <h1>TP POO</h1>
 
 <h2>Q46 - Jeu de combat</h2>
+<h3>Coucou</h3>
 
 <div class="tableau">
 
