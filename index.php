@@ -95,7 +95,7 @@ require "personnage.class.php";
 
     <div class="personnages tb3">
 
-        <h2>Personnages sélectionnées pour la partie</h2>
+        <h2>Personnages sélectionnés pour la partie</h2>
 
         <?php
 
