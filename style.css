@@ -72,7 +72,7 @@ button, input {
     transition: 0.2s;
 }
 
-button:hover {
+input:hover {
 
     cursor: pointer;
     background-color: black;
@@ -117,10 +117,53 @@ thead {
 .remove {
     color: white;
     background-color: orange;
+    text-align: center;
 }
 
 .new-perso {
     width: 30%;
     text-align: center;
+}
+
+.controle {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+    margin: auto;
+}
+
+.controle-title {
+    width: 100%;
+
+}
+
+.controle-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.controle-taille {
+    width: 25%;
+}
+
+.modification {
+
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 2px gray;
+
 }
 

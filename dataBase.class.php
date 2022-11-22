@@ -46,6 +46,41 @@ class Database
         return $this->request->fetchAll();
     }
 
+    public function supprimer($id) {
+
+        $this->prepReq("delete FROM personnages where id = :id", ["id" => $id]);
+        $this->fetchData();
+
+    }
+
+    public function nouveau($nom) {
+
+        $this->prepReq("SELECT * FROM personnages where nom = :name", ["name" => $nom]);
+        $personnages = $this->fetchData();
+
+        if (count($personnages) == 0) {
+
+            $this->prepReq("INSERT INTO personnages (nom, vie, force_attaque, point_attaque )  values (:name, 100, 0, 0)", ["name" => $nom]);
+
+        };
+
+    }
+
+    public function modification($id, $newName) {
+
+        $this->prepReq("SELECT * FROM personnages where nom = :name", ["name" => $newName]);
+        $personnages = $this->fetchData();
+
+        if (count($personnages) == 0) {
+
+            $this->prepReq("UPDATE personnages set nom = :name where id = :id", ["name" => $newName, "id" => $id]);
+
+        };
+
+
+    }
+
 
 
 }
+
