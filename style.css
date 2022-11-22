@@ -16,6 +16,24 @@ body {
     padding: 10px;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    margin: 5px auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.title-img {
+    width: 100px;
+    transition: 0.2s;
+}
+
+.title-img:hover {
+    scale: 1.2;
+}
+
 .tableau {
 
     width: 750px;

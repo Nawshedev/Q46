@@ -18,9 +18,18 @@ require "personnage.class.php";
 </head>
 <body>
 
-<h1>TP POO</h1>
+<div class="title">
+    
+    <div class="title-img">
+        <img src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f47e.svg" width="80" height="80">
+    </div>
+    <div class="title-name">
+        <h1>TP POO</h1>
+        <h2>Q46 - JEU DE COMBAT</h2>
+    </div>
+    
+</div>
 
-<h2>Q46 - JEU DE COMBAT</h2>
 
 <div class="tableau">
 
@@ -53,8 +62,7 @@ require "personnage.class.php";
                         echo "<th>Point de Vie</th>";
                         echo "<th>Force d'attaque</th>";
                         echo "<th>Point d'attaque</th>";
-                        echo "<th>Choix</th>";
-                        echo "<th>Options</th>";
+                        echo "<th colspan='2'>Options</th>";
                 echo "</tr>";
 
             echo "</thead>";
@@ -106,7 +114,7 @@ require "personnage.class.php";
         echo "<th>Point de Vie</th>";
         echo "<th>Force d'attaque</th>";
         echo "<th>Point d'attaque</th>";
-        echo "<th>Choix</th>";
+        echo "<th>Options</th>";
         echo "</tr>";
 
         echo "</thead>";
