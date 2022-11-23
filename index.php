@@ -4,6 +4,7 @@
 require "dataBase.class.php";
 require "personnage.class.php";
 
+$traitement = $_SERVER["PHP_SELF"];
 
 ?>
 
@@ -34,10 +35,17 @@ require "personnage.class.php";
 <div class="tableau">
 
     <div class="personnages tb1">
+        <form action="<?=$traitement ?>" method="get">
 
-        <h2>Créer un nouveau personnage</h2>
-        <input class="new-perso" type="text" placeholder="Nom du personnage">
-        <button class="new-perso">Enregistrer le personnage</button>
+            <h2>Créer un nouveau personnage</h2>
+            <?php if(isset($_GET['error'])) {
+                echo "<p>" . $_GET['error'] . "</p>";
+            } ?>
+
+            <input class="new-perso" name="personnage" type="text" placeholder="Nom du personnage">
+            <input class="new-perso" name="nouveau" type="submit" value="Enregistrer le personnage">
+
+        </form>
 
     </div>
 
@@ -62,7 +70,7 @@ require "personnage.class.php";
                         echo "<th>Point de Vie</th>";
                         echo "<th>Force d'attaque</th>";
                         echo "<th>Point d'attaque</th>";
-                        echo "<th colspan='2'>Options</th>";
+                        echo "<th colspan='3'>Options</th>";
                 echo "</tr>";
 
             echo "</thead>";
@@ -72,18 +80,23 @@ require "personnage.class.php";
                 foreach ($personnages as $personnage) {
 
                     echo "<tr>";
+                        echo "<form method='get' action='$traitement'>";
 
-                    echo "<td>{$personnage['id']}</td>";
-                    echo "<td>{$personnage['nom']}</td>";
-                    echo "<td>{$personnage['vie']}</td>";
-                    echo "<td>{$personnage['force_attaque']}</td>";
-                    echo "<td>{$personnage['point_attaque']}</td>";
-                    echo "<td><button>Ajouter à la partie</button></td>";
-                    echo "<td><button class='red'>Supprimer le personnage</button></td>";
+                            echo "<td><input type='hidden' name='id' value='{$personnage['id']}'>{$personnage['id']}</td>";
+//                            echo "<td>{$personnage['nom']}</td>";
+//                            echo "<td>{$personnage['vie']}</td>";
+                            echo "<td><input type='hidden' name='nom' value='{$personnage['nom']}'>{$personnage['nom']}</td>";
+                            echo "<td><input type='hidden' name='vie' value='{$personnage['vie']}'>{$personnage['vie']}</td>";
+                            echo "<td>{$personnage['force_attaque']}</td>";
+                            echo "<td>{$personnage['point_attaque']}</td>";
 
+                            echo "<td><input type='submit' name='modifier' value='Modifier' ></td>";
+                            echo "<td><input type='submit' name='ajouter' value='Ajouter à la partie' ></td>";
+                            echo "<td><input type='submit' name='supprimer' value='Supprimer le personnage' class='red'></td>";
+                        echo "</form>";
                 }
 
-                echo "</tr>";
+                    echo "</tr>";
 
             echo "</tbody>";
 
@@ -130,7 +143,7 @@ require "personnage.class.php";
             echo "<td>{$personnage['vie']}</td>";
             echo "<td>{$personnage['force_attaque']}</td>";
             echo "<td>{$personnage['point_attaque']}</td>";
-            echo "<td><button class='remove'>Retirer de la partie</button></td>";
+            echo "<td><input class='remove' name='retirer' value='Retirer de la partie'></td>";
 
         }
 
@@ -148,8 +161,78 @@ require "personnage.class.php";
 
 </div>
 
-
 <script src="script.js" type="module"></script>
 
 </body>
 </html>
+
+<?php
+
+if (isset($_GET['modifier'])) {
+    echo "Modifier";
+
+    ?>
+
+    <div class="modification">
+
+        <form action="<?=$traitement ?>" method="get">
+
+            <h2>Modification personnage</h2>
+
+            <?php $oldNom = $_GET['nom'] ?>
+            <input type="text" name="oldname" value="<?=$oldNom ?>">
+            <input type="button" name="valider" value="Valider">
+            <input type="button" name="annuler" value="Annuler">
+
+        </form>
+
+        <?php
+
+        if (isset($_GET['valider']) && !empty($_GET['oldname'])) {
+
+            echo "sa MArche";
+            $id = $_GET["id"];
+            $database->modification($id, $_GET['oldname']);
+            header("location:index.php");
+
+        }
+
+        ?>
+
+    </div>
+
+<?php
+
+
+}
+
+if (isset($_GET['ajouter'])) {
+    echo "ajouter";
+}
+
+if (isset($_GET['supprimer'])) {
+    $id = $_GET["id"];
+    echo "supprimer";
+    $database->supprimer($id);
+    header("location:index.php");
+
+}
+
+if (isset($_GET['nouveau']) && !empty($_GET['personnage'])) {
+    echo "Nouveau";
+    $nom = $_GET['personnage'];
+    $database->nouveau($nom);
+
+    header("location:index.php?error=Personnage existant");
+
+}
+
+
+
+
+
+
+
+
+
+
